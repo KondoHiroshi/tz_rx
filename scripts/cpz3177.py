@@ -20,7 +20,7 @@ if __name__ == '__main__':
     pm_ch = rospy.get_param("~pm_ch")
     node_name = 'cpz3177'
 
-    ch_list = [("{0}".format(i)) for i in range(1, sis_ch + 1)]
+    ch_list = [({0}.format(i)) for i in range(1, sis_ch + 1)]
 
     pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch), Float64, queue_size=1)
                        for ch in ch_list]
