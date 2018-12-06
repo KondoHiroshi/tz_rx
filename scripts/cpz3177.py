@@ -24,9 +24,13 @@ if __name__ == '__main__':
 
     sis_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch), Float64, queue_size=1)
                        for ch in sis_ch_list]
-
-    pm_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch),Float64, queue_size=1)
+"""
+    pm_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch), Float64, queue_size=1)
                        for ch in pm_ch_list]
+"""
+
+    pub1=rospy.Publisher('{0}_rsw{1}_diff10'.format(node_name, rsw_id), Float64, queue_size=1)
+    pub2=rospy.Publisher('{0}_rsw{1}_diff11'.format(node_name, rsw_id), Float64, queue_size=1)
 
     try:
         ad = pyinterface.open(3177, rsw_id)
@@ -35,12 +39,23 @@ if __name__ == '__main__':
         sys.exit()
 
 while not rospy.is_shutdown():
-
+"""
     for ch, pub in zip(pm_ch_list, pm_pub_list):
         ret = ad.input_voltage(ch, "diff")
         msg = Float64()
         msg.data = ret
         pub.publish(msg)
+"""
+
+    ret = ad.input_voltage(10, "diff")
+    msg = Float64()
+    msg.data = ret
+    pub1.publish(msg)
+
+    ret = ad.input_voltage(11, "diff")
+    msg = Float64()
+    msg.data = ret
+    pub2.publish(msg)
 
     for ch, pub in zip(sis_ch_list, sis_pub_list):
         ret = ad.input_voltage(ch, "diff")
