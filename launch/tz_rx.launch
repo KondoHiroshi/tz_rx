@@ -97,10 +97,17 @@
   </node>
   -->
   <node pkg = "tz_rx"
-        name = "pm_power_reader"
+        name = "pm_power_reader_ch1"
         type = "relay.py">
     <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/pm_power_reader.conf" />
+           value = "$(find tz_rx)/relay_conf/pm_power_reader_ch1.conf" />
+  </node>
+
+  <node pkg = "tz_rx"
+        name = "pm_power_reader_ch2"
+        type = "relay.py">
+    <param name = "config_file"
+           value = "$(find tz_rx)/relay_conf/pm_power_reader_ch2.conf" />
   </node>
 
   <node pkg = "tz_rx"
