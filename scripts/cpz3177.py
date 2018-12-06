@@ -40,7 +40,7 @@ while not rospy.is_shutdown():
         ret = ad.input_voltage(ch, "diff")
         msg = Float64()
         msg.data = ret
-        pub_pm.publish(msg)
+        pub.publish(msg)
 
     for ch, pub in zip(sis_ch_list, sis_pub_list):
         ret = ad.input_voltage(ch, "diff")
