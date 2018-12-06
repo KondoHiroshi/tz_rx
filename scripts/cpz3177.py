@@ -22,11 +22,11 @@ if __name__ == '__main__':
     sis_ch_list = [i for i in range(1, sis_ch + 1)]
     pm_ch_list = [i for i in range(10, pm_ch+10)]
 
-    sis_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, sis_ch), Float64, queue_size=1)
+    sis_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch), Float64, queue_size=1)
                        for ch in sis_ch_list]
 
-    pm_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, pm_ch),Float64, queue_size=1)
-                        for ch in pm_ch_list]
+    pm_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch),Float64, queue_size=1)
+                       for ch in pm_ch_list]
 
     try:
         ad = pyinterface.open(3177, rsw_id)
