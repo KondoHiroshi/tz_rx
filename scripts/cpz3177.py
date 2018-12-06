@@ -10,22 +10,23 @@ import rospy
 from std_msgs.msg import Float64
 
 sis_ch=8
-
+pm_ch=2
 
 if __name__ == '__main__':
 
     rospy.init_node('cpz3177')
     rate = rospy.get_param('~rate')
     rsw_id = rospy.get_param('~rsw_id')
-    pm_ch = rospy.get_param("~pm_ch")
     node_name = 'cpz3177'
 
-    ch_list = [i for i in range(1, sis_ch + 1)]
+    sis_ch_list = [i for i in range(1, sis_ch + 1)]
+    pm_ch_list = [i for i in range(10, pm_ch+10)]
 
-    pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, ch), Float64, queue_size=1)
-                       for ch in ch_list]
+    sis_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, sis_ch), Float64, queue_size=1)
+                       for ch in sis_ch_list]
 
-    pub_pm = rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, pm_ch),Float64, queue_size=1)
+    pm_pub_list = [rospy.Publisher('{0}_rsw{1}_diff{2}'.format(node_name, rsw_id, pm_ch),Float64, queue_size=1)
+                        for ch in pm_pub_list]
 
     try:
         ad = pyinterface.open(3177, rsw_id)
@@ -35,12 +36,13 @@ if __name__ == '__main__':
 
 while not rospy.is_shutdown():
 
-    msg = Float64()
-    ret = ad.input_voltage(pm_ch, "diff")
-    msg.data = ret
-    pub_pm.publish(msg)
+    for ch, pub in zip(pm_ch_list, pm_pub_list)
+        ret = ad.input_voltage(ch, "diff")
+        msg = Float64()
+        msg.data = ret
+        pub_pm.publish(msg)
 
-    for ch, pub in zip(ch_list, pub_list):
+    for ch, pub in zip(sis_ch_list, sis_pub_list):
         ret = ad.input_voltage(ch, "diff")
         msg = Float64()
         msg.data = ret
@@ -48,6 +50,6 @@ while not rospy.is_shutdown():
     time.sleep(rate)
     continue
 
-#20181204
+#20181206
 #change for Tz
 #wriiten by Kondo
