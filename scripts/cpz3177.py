@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 while not rospy.is_shutdown():
 
-    for ch, pub in zip(pm_ch_list, pm_pub_list)
+    for ch, pub in zip(pm_ch_list, pm_pub_list):
         ret = ad.input_voltage(ch, "diff")
         msg = Float64()
         msg.data = ret
