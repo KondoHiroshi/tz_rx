@@ -88,14 +88,6 @@
            value = "$(find tz_rx)/relay_conf/sis_bias_vol_writer_ch4.conf" />
   </node>
 
-  <!--
-  <node pkg = "tz_rx"
-        name = "sis_bias_vol_locker"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/sis_bias_vol_locker.conf" />
-  </node>
-  -->
   <node pkg = "tz_rx"
         name = "pm_power_reader_ch1"
         type = "relay.py">
@@ -110,93 +102,6 @@
            value = "$(find tz_rx)/relay_conf/pm_power_reader_ch2.conf" />
   </node>
 
-  <node pkg = "tz_rx"
-        name = "pm_ave_count_reader"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/pm_ave_count_reader.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "pm_ave_onoff_reader"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/pm_ave_onoff_reader.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "pm_ave_onoff_cmd_writer"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/pm_ave_onoff_cmd_writer.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "pm_ave_count_cmd_writer"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/pm_ave_count_cmd_writer.conf" />
-  </node>
-
-
-  <node pkg = "tz_rx"
-        name = "chopper_jog_onoff_writer"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_jog_onoff_writer.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "chopper_ptp_onoff_writer"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_ptp_onoff_writer.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "chopper_onoff_reader"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_onoff_reader.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "chopper_speed_reader"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_speed_reader.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "chopper_speed_writer"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_speed_writer.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "chopper_degree_reader"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_degree_reader.conf" />
-  </node>
-
-  <node pkg = "tz_rx"
-        name = "chopper_degree_writer"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_degree_writer.conf" />
-  </node>
-
-  <!--
-  <node pkg = "tz_rx"
-        name = "chopper_onoff_locker"
-        type = "relay.py">
-    <param name = "config_file"
-           value = "$(find tz_rx)/relay_conf/chopper_onoff_locker.conf" />
-
-  </node>
-  -->
   <node pkg="tz_rx" name="cpz340816" type="cpz340816.py" required="true" output="screen">
     <param name="~rate" value="0.1" />
     <param name="~rsw_id" value="0" />
