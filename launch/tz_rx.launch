@@ -114,9 +114,4 @@
     <param name="~pm_ch" value="10" />
   </node>
 
-  <node pkg="tz_rx" name="ml2437a" type="ml2437a_gpib.py" required="true" output="screen">
-    <param name="~host" value="192.168.100.44" />
-    <param name="~port" value="13" />
-  </node>
-
 </launch>
