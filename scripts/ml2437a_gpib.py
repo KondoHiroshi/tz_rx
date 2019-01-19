@@ -3,7 +3,7 @@
 import sys
 import time
 
-sys.path.append("/home/amigos/ros/src/NASCORX_System-master")
+#sys.path.append("/home/amigos/ros/src/NASCORX_System-master")
 import pymeasure
 
 import rospy
@@ -27,7 +27,7 @@ class ml2437a_controller(object):
         self.sub_ave_count = rospy.Subscriber("topic_sub_ave_count", Int32, self.ave_count)
 
 #flag
-        self.power_flag = 1
+        self.power_flag = 0
 
 #switch
     def power_switch(self,q):
@@ -58,7 +58,7 @@ class ml2437a_controller(object):
         msg.data = int(ret)
         self.pub_ave_onoff.publish(msg)
 
-        self.power_flag = 1
+        self.power_flag = 0
 
     def ave_count(self,q):
         self.power_flag = 0
@@ -70,7 +70,7 @@ class ml2437a_controller(object):
         msg.data = int(ret)
         self.pub_ave_count.publish(msg)
 
-        self.power_flag = 1
+        self.power_flag = 0
 
     def start_thread(self):
         th1 = threading.Thread(target=self.power)
