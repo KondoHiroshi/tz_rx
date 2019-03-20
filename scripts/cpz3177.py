@@ -49,6 +49,5 @@ while not rospy.is_shutdown():
     time.sleep(rate)
     continue
 
-#20181206
-#change for Tz
-#wriiten by Kondo
+#20190320
+#chaned and wriiten by Kondo

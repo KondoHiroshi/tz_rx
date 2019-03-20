@@ -1,6 +1,6 @@
 <launch>
 
-  <node pkg="tz_rx" name="ml2437a" type="ml2437a_gpib.py" required="true" output="screen">
+  <node pkg="rx_device_driver" name="ml2437a" type="ml2437a_gpib.py" required="true" output="screen">
     <param name="~rate" value="0.1" />
     <param name="~rsw_id" value="0" />
     <param name="~host" value="192.168.100.44" />
