@@ -9,14 +9,13 @@ import pyinterface
 import rospy
 from std_msgs.msg import Float64
 
-sis_ch=8
-pm_ch=2
-
 if __name__ == '__main__':
 
     rospy.init_node('cpz3177')
     rate = rospy.get_param('~rate')
     rsw_id = rospy.get_param('~rsw_id')
+    sis_ch = rospy.get_param('~sis_ch')
+    pm_ch = rospy.get_param('~pm_ch')
     node_name = 'cpz3177'
 
     sis_ch_list = [i for i in range(1, sis_ch + 1)]
