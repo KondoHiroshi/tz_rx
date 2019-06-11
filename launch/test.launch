@@ -4,9 +4,6 @@
   <remap from="/test" to="/test/revolution" />
   </node>
 
-  <node pkg="tz_rx" name="test" type="test.py" required="true" output="screen">
-  <remap from="/test" to="/test/chenged" />
-
   </node>
 
 </launch>
