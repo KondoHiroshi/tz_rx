@@ -14,7 +14,7 @@ class ml2437a_controller(object):
     def __init__(self):
 
 
-        self.sub_power = rospy.Publisher("/test", Int32, self.value)
+        self.sub_power = rospy.Publisher("/test", Int32, queue_size=1)
         self.sub_power = rospy.Publisher("/test3", Int32, queue_size=1)
 
 #switch
