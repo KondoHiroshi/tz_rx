@@ -15,6 +15,7 @@ class ml2437a_controller(object):
 
 
         self.sub_power = rospy.Subscriber("/test", Int32, self.value)
+        self.sub_power = rospy.Publisher("/test3", Int32)
 
 #switch
     def value(self,q):
