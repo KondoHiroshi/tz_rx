@@ -1,9 +1,12 @@
 <launch>
 
   <node pkg="tz_rx" name="test" type="test.py" required="true" output="screen">
-  <remap from="/test" to="/test/chenged" />
   <remap from="/test" to="/test/revolution" />
-  <remap from="/test3" to="/chenged3" />
+  </node>
+
+  <node pkg="tz_rx" name="test" type="test.py" required="true" output="screen">
+  <remap from="/test" to="/test/chenged" />
+
   </node>
 
 </launch>
