@@ -21,6 +21,8 @@ class test(object):
         self.pub3 = rospy.Publisher("/test", Int32, queue_size=1)
         self.sub1 = rospy.Subscriber("/sub1", Int32, self.test1)
         self.sub2 = rospy.Subscriber("/sub2", Int32, self.test2)
+        self.sub3 = rospy.Subscriber("/sub3", Int32, self.test1)
+        self.sub4 = rospy.Subscriber("/sub4", Int32, self.test2)
 
 #switch
     def test1(self,q):
