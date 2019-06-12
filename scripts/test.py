@@ -37,12 +37,12 @@ class test(object):
 
     def test3(self,q):
         a = q.data*3
-        self.pub1.publish(a)
+        self.pub3.publish(a)
         return
 
     def test4(self,q):
         a = q.data*4
-        self.pub2.publish(a)
+        self.pub4.publish(a)
         return
 
 if __name__ == "__main__" :
