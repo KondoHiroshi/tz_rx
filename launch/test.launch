@@ -4,6 +4,4 @@
   <remap from="/test" to="/test/revolution" />
   </node>
 
-  </node>
-
 </launch>
