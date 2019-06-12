@@ -10,7 +10,7 @@ from std_msgs.msg import String
 from std_msgs.msg import Int32
 
 
-class ml2437a_controller(object):
+class test(object):
     def __init__(self):
 
 
@@ -21,7 +21,7 @@ class ml2437a_controller(object):
 
 #switch
     def value(self,q):
-        a = q
+        a = q.data
         return a
 
 
@@ -29,7 +29,7 @@ class ml2437a_controller(object):
 if __name__ == "__main__" :
     rospy.init_node("test")
 
-    ctrl = ml2437a_controller()
+    ctrl = test()
 
     rospy.spin()
 
