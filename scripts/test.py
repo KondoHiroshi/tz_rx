@@ -18,7 +18,7 @@ class test(object):
         self.pub2 = rospy.Publisher("/pub2", Int32, queue_size=1)
         self.pub3 = rospy.Publisher("/pub3", Int32, queue_size=1)
         self.pub4 = rospy.Publisher("/pub4", Int32, queue_size=1)
-        self.pub3 = rospy.Publisher("/test", Int32, queue_size=1)
+        self.pub5 = rospy.Publisher("/test", Int32, queue_size=1)
         self.sub1 = rospy.Subscriber("/sub1", Int32, self.test1)
         self.sub2 = rospy.Subscriber("/sub2", Int32, self.test2)
         self.sub3 = rospy.Subscriber("/sub3", Int32, self.test3)
