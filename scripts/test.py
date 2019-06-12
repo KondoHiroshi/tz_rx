@@ -14,15 +14,16 @@ class test(object):
     def __init__(self):
 
 
-        self.sub_power = rospy.Publisher("/test", Int32, queue_size=1)
-        self.sub_power = rospy.Publisher("/test2", Int32, queue_size=1)
-        self.sub_power = rospy.Subscriber("/test3", Int32, self.value)
-        self.sub_power = rospy.Subscriber("/test4", Int32, self.value)
+        self.pub1 = rospy.Publisher("/test", Int32, queue_size=1)
+        self.pub2 = rospy.Publisher("/test2", Int32, queue_size=1)
+        self.sub1 = rospy.Subscriber("/test3", Int32, self.value)
+        self.sub2 = rospy.Subscriber("/test4", Int32, self.value)
 
 #switch
     def value(self,q):
         a = q.data
-        return a
+        self.pub2.publish(a)
+        return
 
 
 
