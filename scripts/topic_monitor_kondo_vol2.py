@@ -65,11 +65,13 @@ class topic_monitor(object):
 
         now_topic_li = self.make_topic_list()
         if self.topic_li == now_topic_li:
+            print("a")
             pass
 
         elif self.topic_li != now_topic_li:
             self.topic_li = now_topic_li
             self.make_sub()
+            print("b")
 
         return
 
