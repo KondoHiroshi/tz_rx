@@ -17,7 +17,7 @@ class topic_monitor(object):
 
         self.values = {}
         self.refreshing = False
-        self.topic_li = make_topic_list()
+        self.topic_li = self.make_topic_list()
         self.msgtype_dict = {
             'std_msgs/String': std_msgs.msg.String,
             'std_msgs/Float64': std_msgs.msg.Float64,
