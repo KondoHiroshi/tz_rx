@@ -65,11 +65,11 @@ class topic_monitor(object):
 
         now_topic_li = rospy.get_published_topics()
         now_topic_li = sorted(now_topic_li)
-        if self._topic_li == now_topic_li:
+        if self.topic_li == now_topic_li:
             pass
 
-        elif self._topic_li != now_topic_li:
-            self._topic_li = now_topic_li
+        elif self.topic_li != now_topic_li:
+            self.topic_li = now_topic_li
             self.make_sub()
 
         return
