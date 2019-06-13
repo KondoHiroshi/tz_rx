@@ -18,6 +18,7 @@ class topic_monitor(object):
         self.values = {}
         self.refreshing = False
         self.topic_li = self.make_topic_list()
+        self.make_sub()
         self.msgtype_dict = {
             'std_msgs/String': std_msgs.msg.String,
             'std_msgs/Float64': std_msgs.msg.Float64,
@@ -65,6 +66,7 @@ class topic_monitor(object):
         now_topic_li = sorted(now_topic_li)
         if self._topic_li == now_topic_li:
             pass
+
         elif self._topic_li != now_topic_li:
             self._topic_li = now_topic_li
             self.make_sub()
