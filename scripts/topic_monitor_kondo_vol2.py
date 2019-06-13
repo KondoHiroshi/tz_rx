@@ -63,21 +63,28 @@ class topic_monitor(object):
             continue
         self.refreshing = False
 
-        now_topic_li = self.make_topic_list()
-        if self.topic_li == now_topic_li:
-            print("a")
-            pass
-
-        elif self.topic_li != now_topic_li:
-            self.topic_li = now_topic_li
-            self.make_sub()
-            print("b")
-
         return
+
+    def compare_topic(self):
+        while not rospy.is_shutdown():
+            now_topic_li = self.make_topic_list()
+            if self.topic_li == now_topic_li:
+                print("a")
+                pass
+
+            elif self.topic_li != now_topic_li:
+                self.topic_li = now_topic_li
+                self.make_sub()
+                print("b")
+
+    def thread(self):
+        th = threading.Thread(target=self.compare_topic)
+        th.setDaemon(True)
+        th.start()
 
 
 if __name__=='__main__':
     rospy.init_node(name)
     tm = topic_monitor()
-
+    tm.thread()
     rospy.spin()
