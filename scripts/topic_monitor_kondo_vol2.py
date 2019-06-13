@@ -63,8 +63,7 @@ class topic_monitor(object):
             continue
         self.refreshing = False
 
-        now_topic_li = rospy.get_published_topics()
-        now_topic_li = sorted(now_topic_li)
+        now_topic_li = make_topic_list()
         if self.topic_li == now_topic_li:
             pass
 
