@@ -37,12 +37,12 @@ class topic_monitor(object):
 
     def make_sub(self):
         topic_from = [rospy.Subscriber(
-                    name = tm.topic_li[i][0],
-                    data_class = tm.msgtype_dict[tm.topic_li[i][1]],
-                    callback = tm.callback,
-                    callback_args = {'name': tm.topic_li[i][0]},
+                    name = self.topic_li[i][0],
+                    data_class = self.msgtype_dict[self.topic_li[i][1]],
+                    callback = self.callback,
+                    callback_args = {'name': self.topic_li[i][0]},
                     queue_size = 1,
-                ) for i in range(len(tm.topic_li))]
+                ) for i in range(len(self.topic_li))]
 
     def callback(self, msg, args):
         self.values[args['name']] = msg.data
