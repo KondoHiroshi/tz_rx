@@ -15,18 +15,24 @@ class topic_monitor(object):
 
     def __init__(self):
 
-        self.msgtype_dict = {'std_msgs/String': std_msgs.msg.String,
-                             'std_msgs/Float64': std_msgs.msg.Float64}
         self.values = {}
         self.refreshing = False
+        self.topic_li = make_topic_list()
+        self.msgtype_dict = {
+            'std_msgs/String': std_msgs.msg.String,
+            'std_msgs/Float64': std_msgs.msg.Float64,
+            'std_msgs/Int32': std_msgs.msg.Int32,
+        }
+
+    def make_topic_list(self):
+        topic_li = []
         _topic_li = rospy.get_published_topics()
-        self.topic_li = []
         for i in range(len(_topic_li)):
             if _topic_li[i][0] == '/rosout': pass
             elif _topic_li[i][0] == '/rosout_agg': pass
-            else: self.topic_li.append(_topic_li[i])
-
-        pass
+            else: topic_li.append(_topic_li[i])
+        topic_li = sorted(topic_li)
+        return topic_li
 
     def callback(self, msg, args):
         self.values[args['name']] = msg.data
