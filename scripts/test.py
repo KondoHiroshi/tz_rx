@@ -13,7 +13,7 @@ from std_msgs.msg import Int32
 class test(object):
     def __init__(self):
 
-
+        """
         self.pub1 = rospy.Publisher("/pub1", Int32, queue_size=1)
         self.pub2 = rospy.Publisher("/pub2", Int32, queue_size=1)
         self.pub3 = rospy.Publisher("/pub3", Int32, queue_size=1)
@@ -23,8 +23,11 @@ class test(object):
         self.sub2 = rospy.Subscriber("/sub2", Int32, self.test2)
         self.sub3 = rospy.Subscriber("/sub3", Int32, self.test3)
         self.sub4 = rospy.Subscriber("/sub4", Int32, self.test4)
+        """
 
-#switch
+        self.latch_t = rospy.Publisher("/test_lacth_false", String, queue_size=1,latch=False)
+        self.latch_f = rospy.Publisher("/test_latch_true", String, queue_size=1,latch=True)
+
     def test1(self,q):
         a = q.data*1
         self.pub1.publish(a)
@@ -45,10 +48,18 @@ class test(object):
         self.pub4.publish(a)
         return
 
+    def test_latch(self):
+        t_list = ["1","2","3","4","5"]
+        for i in t_list:
+            self.latch_f.publish("latch false "+i)
+            self.latch_t.publish("latch true "+i)
+
+
 if __name__ == "__main__" :
     rospy.init_node("test")
 
     ctrl = test()
+    ctrl.test_lacth()
 
     rospy.spin()
 

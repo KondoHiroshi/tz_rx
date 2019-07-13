@@ -1,0 +1,6 @@
+<launch>
+
+  <node pkg="tz_rx" name="test2" type="test2.py" required="true" output="screen">
+  </node>
+
+</launch>
