@@ -110,7 +110,7 @@ class test(object):
         return
 
     def test_t(self, data):
-        topic_name = '/test_latch_false'
+        topic_name = '/test_latch_ture'
         data_class = std_msgs.msg.Float64
 
         self.make_pub.publish(topic_name, data_class, msg = data)
