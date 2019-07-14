@@ -25,8 +25,8 @@ class test(object):
         self.sub4 = rospy.Subscriber("/sub4", Int32, self.test4)
         """
 
-        self.latch_t = rospy.Publisher("/test_lacth_false", String, queue_size=1,latch=True)
-        self.latch_f = rospy.Publisher("/test_latch_true", String, queue_size=1,latch=False)
+        self.latch_t = rospy.Publisher("/test_lacth_true", String, queue_size=1,latch=True)
+        self.latch_f = rospy.Publisher("/test_latch_false", String, queue_size=1,latch=False)
 
     def test1(self,q):
         a = q.data*1
