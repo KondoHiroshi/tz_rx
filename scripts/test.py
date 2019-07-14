@@ -59,7 +59,7 @@ if __name__ == "__main__" :
     rospy.init_node("test")
 
     ctrl = test()
-    ctrl.test_lacth()
+    ctrl.test_latch()
 
     rospy.spin()
 
