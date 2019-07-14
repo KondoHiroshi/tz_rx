@@ -51,6 +51,7 @@ class test(object):
     def test_latch(self):
         t_list = ["1","2","3","4","5"]
         for i in t_list:
+            time.sleep(0.1)
             self.latch_f.publish("latch false "+i)
             self.latch_t.publish("latch true "+i)
 
@@ -59,7 +60,8 @@ if __name__ == "__main__" :
     rospy.init_node("test")
 
     ctrl = test()
-    ctrl.test_latch()
+    time.sleep(1)
+    ctrl.test_lacth()
 
     rospy.spin()
 
