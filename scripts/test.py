@@ -100,7 +100,7 @@ class make_pub_test(object):
 class test(object):
 
     def __init__(self):
-        self.make_pub = make_pub()
+        self.make_pub = make_pub_test()
 
     def test_f(self, data):
         topic_name = '/test_latch_false'
