@@ -15,7 +15,7 @@ class test2(object):
 
 
         rospy.Subscriber("/test_latch_true", String, self.test1)
-        rospy.Subscriber("/test_lacth_false", String, self.test2)
+        rospy.Subscriber("/test_latch_false", String, self.test2)
 
 #switch
     def test1(self,q):
