@@ -61,7 +61,7 @@ if __name__ == "__main__" :
 
     ctrl = test()
     time.sleep(1)
-    ctrl.test_lacth()
+    ctrl.test_latch()
 
     rospy.spin()
 
