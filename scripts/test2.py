@@ -14,8 +14,8 @@ class test2(object):
     def __init__(self):
 
 
-        rospy.Subscriber("/test_latch_true", String, self.test1)
-        rospy.Subscriber("/test_latch_false", String, self.test2)
+        rospy.Subscriber("/test_latch_true", Float64, self.test1)
+        rospy.Subscriber("/test_latch_false", Float64, self.test2)
 
 #switch
     def test1(self,q):
