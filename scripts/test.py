@@ -75,7 +75,7 @@ class make_pub(object):
 
     def set_publisher(self, topic_name, data_class):
         self.pub[topic_name] = rospy.Publisher(name = topic_name, data_class = data_class, queue_size = 1, latch = False)
-        time.sleep(0.01)
+        time.sleep(0.1)
         return
 
 class make_pub_test(object):
@@ -94,7 +94,7 @@ class make_pub_test(object):
 
     def set_publisher(self, topic_name, data_class):
         self.pub[topic_name] = rospy.Publisher(name = topic_name, data_class = data_class, queue_size = 1, latch = True)
-        time.sleep(0.01)
+        time.sleep(0.1)
         return
 
 class test(object):
